@@ -67,11 +67,11 @@ for i in times:
     rownolegle_times.append(rownolegle(i, plot=False))
 
 
-plt.plot(times, szeregowo_times, label="Czesy obliczen szeregowych")
+plt.plot(times, szeregowo_times, label="Czasy obliczen szeregowych")
 plt.plot(times, rownolegle_times, label="Czasy obliczen rownoleglych")
 plt.tight_layout()
 plt.yscale('log')
-plt.xscale('log')
 plt.legend()
+plt.savefig("czasy1.png")
 plt.show()
 
