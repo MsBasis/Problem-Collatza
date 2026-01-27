@@ -23,12 +23,12 @@ def collatz(start: int) -> List[int]:
 
 def szeregowo(_max: int, plot: bool = True) -> float:
     start: float = time.time()
-    dupa: List[List[int]] = []
+    ad: List[List[int]] = []
     for i in range(1, _max, 1):
-        dupa.append(collatz(i+1))
+        ad.append(collatz(i+1))
 
     if plot:
-        for i, x in enumerate(dupa):
+        for i, x in enumerate(ad):
             plt.plot(x)
 
         plt.tight_layout()
@@ -41,12 +41,12 @@ def szeregowo(_max: int, plot: bool = True) -> float:
 
 def rownolegle(_max: int, mx_workers: int = 10, plot: bool = True) -> float:
     start: float = time.time()
-    dupa: List[List[int]] = []
+    ad: List[List[int]] = []
     with ProcessPoolExecutor(max_workers=mx_workers) as pe:
-        dupa.append(list(pe.map(collatz, list(range(1, _max, 1)), chunksize=100)))
+        ad.append(list(pe.map(collatz, list(range(1, _max, 1)), chunksize=100)))
 
     if plot:
-        for x in dupa[0]:
+        for x in ad[0]:
             plt.plot(x)
 
         plt.tight_layout()
